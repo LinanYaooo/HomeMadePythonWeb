@@ -2,4 +2,4 @@
 pip install redis
 
 # 启动任务
-gunicorn -bind 0.0.0.0:80 --workers=4 app:app
+gunicorn -bind 0.0.0.0:80 --workers 4 app:app
