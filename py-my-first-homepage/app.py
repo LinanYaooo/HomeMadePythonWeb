@@ -15,4 +15,5 @@ app.register_blueprint(web_recorder)
 
 # 服务启动
 if __name__ == '__main__':
-    app.run(HOST, PORT, debug=DEBUG)
+    print(PORT)
+    app.run(HOST, port=PORT, debug=DEBUG)
