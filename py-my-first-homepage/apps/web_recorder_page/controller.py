@@ -4,11 +4,18 @@
 """
 网站记录器 控制器
 """
-from . import web_recorder
-from flask import render_template_string
+from database.redis.RedisCore import RedisCore
+from datetime import datetime
 
 
-# 网站主页
-@web_recorder("/")
-def index():
-    return render_template_string("<h1>hello world</h1>")
+class Controller:
+
+    def __init__(self):
+        """ 初始化控制器资源 """
+        self.redis = RedisCore()
+
+    def hello_world_get(self):
+        return self.redis.connection.get("test")
+
+    def hello_world_set(self):
+        return self.redis.connection.set("test", datetime.now().strftime("%H:%M:%S"))

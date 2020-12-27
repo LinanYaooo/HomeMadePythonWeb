@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcom!</title>
+    <link rel="stylesheet" href="static/bootstrap-4.5.3-dist/css/bootstrap.min.css">
+    <style>
+        li:hover {
+            font-size: 120%;
+        }
+    </style>
+
+</head>
+<body>
+
+
+<div class="jumbotron">
+    <h1 class="display-4">Hello, world! {{ date }} </h1>
+    <p class="lead">
+    <p><strong>Apache Flink 系列入门教程这里</strong></p></p>
+    <hr class="my-4">
+    <ul class="list-group">
+        <li class="list-group-item">
+            <a href="https://ververica.cn/developers/flink-training-course1">零基础入门</a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://ververica.cn/developers/flink-training-course2">进阶篇</a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://ververica.cn/developers/flink-training-course3">运维&amp;实战</a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://maven.apache.org/plugins/maven-resources-plugin/examples/copy-resources.html">
+                About How to move folder through maven in phase
+            </a>
+        </li>
+
+        <li class="list-group-item">
+            <a href="#">Status of Respberry Pi @ Home</a>
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    {% for k in pi_info.keys() %}
+                        <th scope="col">{{ k }}</th>
+                    {% endfor %}
+                </tr>
+                </thead>
+                <tr class="table-success">
+                    {% for d in pi_info.values() %}
+                        <th scope="col">{{ d }}</th>
+                    {% endfor %}
+                </tr>
+
+            </table>
+        </li>
+    </ul>
+
+</div>
+</body>
+
+
+<script src="static/bootstrap-4.5.3-dist/js/bootstrap.bundle.min.js"></script>
+</html>

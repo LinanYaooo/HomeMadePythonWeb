@@ -1,5 +1,5 @@
 # 依赖引入
-from flask import Blueprint, render_template_string,blueprints
+from flask import Blueprint, render_template
 
 # 视图函数引入
 from .view import PageView
@@ -10,4 +10,4 @@ web_recorder = Blueprint("WebRecorder", __name__, url_prefix="")
 
 @web_recorder.route("/")
 def index():
-    return render_template_string(PageView.index())
+    return PageView.index()
