@@ -11,3 +11,8 @@ web_recorder = Blueprint("WebRecorder", __name__, url_prefix="")
 @web_recorder.route("/")
 def index():
     return PageView.index()
+
+
+@web_recorder.route("/update", methods=["GET", "POST"])
+def update_url():
+    pass

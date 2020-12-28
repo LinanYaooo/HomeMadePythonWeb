@@ -4,6 +4,7 @@
 
 """
 网站记录器 界面
+- 渲染页面
 """
 from .controller import Controller
 from flask import render_template
@@ -12,11 +13,22 @@ import json
 
 
 class PageView:
-
     controller = Controller()
 
-    @staticmethod
-    def index():
-        date = datetime.now().strftime("%Y-%m-%D %H:%M:%S")
-        pi_info = json.loads(PageView.controller.redis.connection.get("myPi"))
-        return render_template("index.html", date=date, pi_info=pi_info)
+    @classmethod
+    def index(cls):
+        return render_template("index.html", urls=cls.get_urls())
+
+    @classmethod
+    def add_url(cls, name, url):
+        result = cls.controller.update_urls(name, url)
+        return render_template("index.html", urls=cls.get_urls(), result=result)
+
+    @classmethod
+    def delete_url(cls, name, url):
+        result = cls.controller.delete_url(name, url)
+        return render_template("index.html", urls=cls.get_urls(), result=result)
+
+    @classmethod
+    def get_urls(cls):
+        return cls.controller.db.connection.hgetall("urls")
