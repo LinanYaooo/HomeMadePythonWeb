@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+# -*- coding:utf-8 -*-
+# Author:Linany
+
 # 依赖引入
 from flask import Blueprint, render_template
 
