@@ -33,9 +33,3 @@ class Controller:
             return True
         else:
             return False
-
-    def hello_world_get(self):
-        return self.redis.connection.get("test")
-
-    def hello_world_set(self):
-        return self.redis.connection.set("test", datetime.now().strftime("%H:%M:%S"))

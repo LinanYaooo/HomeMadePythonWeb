@@ -31,4 +31,7 @@ class PageView:
 
     @classmethod
     def get_urls(cls):
-        return cls.controller.db.connection.hgetall("urls")
+        data = cls.controller.db.connection.hgetall("urls")
+        dd = sorted(data)
+        result = {k: data.get(k) for k in dd}
+        return result
