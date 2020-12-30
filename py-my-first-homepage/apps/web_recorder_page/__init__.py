@@ -3,7 +3,7 @@
 # Author:Linany
 
 # 依赖引入
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
 
 # 视图函数引入
 from .view import PageView
@@ -19,4 +19,14 @@ def index():
 
 @web_recorder.route("/update", methods=["GET", "POST"])
 def update_url():
-    pass
+    url = request.form.get("urlAddress")
+    name = request.form.get("urlName")
+    PageView.controller.update_urls(name=name, url=url)
+    return PageView.index()
+
+
+@web_recorder.route("/delete", methods=["GET", "POST"])
+def delete_url():
+    name = request.form.get("urlName")
+    PageView.controller.delete_url(name=name)
+    return PageView.index()
