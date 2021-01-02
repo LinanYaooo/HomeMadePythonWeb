@@ -14,7 +14,7 @@ class Controller:
 
     def __init__(self):
         """ 初始化控制器资源 """
-        self.db = Conn.redis
+        self.db = Conn.conn
 
     def update_urls(self, name: str, url: str):
         """ 传入Url并保存到数据库 """
