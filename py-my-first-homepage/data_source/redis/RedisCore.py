@@ -9,13 +9,17 @@ class RedisCore:
     """Redis链接对象"""
 
     def __init__(self, host=Config.REDIS_SERVER, port=Config.REDIS_PORT):
-        self.conn = redis.Redis (host=host, port=port, decode_responses=True)
+        self.conn = redis.Redis(host=host, port=port, decode_responses=True)
 
     @property
-    def connection(self):
+    def connection(self) -> redis.connection:
         try:
             self.conn.get("test")
         except Exception as e:
             self.__init__()
         finally:
             return self.conn
+
+    def set(self, key, value):
+        self.connection.set(key, value)
+        return True
