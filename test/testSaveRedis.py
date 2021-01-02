@@ -7,8 +7,8 @@
 import pickle
 from data_source.redis.RedisCore import RedisCore
 
-db = RedisCore()
-result = db.connection.hgetall("urls")
+# db = RedisCore()
+# result = db.connection.hgetall("urls")
 files = "init_data.pkl"
 with open(files, "wb") as f:
     pickle.dump(result, f)

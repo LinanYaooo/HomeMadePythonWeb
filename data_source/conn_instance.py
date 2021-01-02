@@ -5,8 +5,8 @@ from .redis.RedisCore import RedisCore
 
 
 class Conn:
-    redis = RedisCore()
+    conn = RedisCore()
 
     @classmethod
     def main_db(cls):
-        return cls.redis
+        return cls.conn

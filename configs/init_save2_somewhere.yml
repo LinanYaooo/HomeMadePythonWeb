@@ -1,7 +1,0 @@
-# 初始化文件, 初始化时持久化到数据库
-
-urls:
-  Flink 零基础入门: https://ververica.cn/developers/flink-training-course1
-  Flink 进阶篇: https://ververica.cn/developers/flink-training-course2
-  Flink 运维&amp;实战: https://ververica.cn/developers/flink-training-course3
-  MAVEN resource-plugin: http://maven.apache.org/plugins/maven-resources-plugin/examples/copy-resources.html
