@@ -5,4 +5,4 @@ pip3 install flask==1.1.2
 
 
 # 启动任务
-gunicorn3 -b 0.0.0.0:6666 --workers=4 app:app
+gunicorn3 -b 0.0.0.0:80 --workers=4 app:app
