@@ -6,8 +6,5 @@ pip3 install psycopg2==2.8.6
 pip3 install DBUtils==2.0
 pip3 install pandas==1.2.0
 
-# 打印必要环境变量
-echo $PG_PWD
-
 # 启动任务 - 通过 root 权限启动
-nohup gunicorn3 -b 0.0.0.0:6666 --workers=4 app:app &
+nohup gunicorn3 -b 0.0.0.0:81 --workers=4 app:app &
