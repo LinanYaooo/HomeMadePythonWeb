@@ -23,5 +23,5 @@ class Config:
 
     # 部署配置
     APP_HOST = "127.0.0.1"
-    APP_PORT = 2333
+    APP_PORT = 81
     DEBUG = True
