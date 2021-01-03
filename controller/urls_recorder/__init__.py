@@ -4,6 +4,7 @@
 
 # 依赖引入
 from flask import Blueprint, render_template, request
+from common.logger.RedisLogger import logger
 
 # 视图函数引入
 from .view import PageView
@@ -14,6 +15,7 @@ web_recorder = Blueprint("WebRecorder", __name__, url_prefix="")
 
 @web_recorder.route("/")
 def index():
+    logger.info(request.remote_addr + " logging in ")
     return PageView.index()
 
 
