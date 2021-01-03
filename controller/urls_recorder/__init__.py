@@ -16,7 +16,6 @@ web_recorder = Blueprint("WebRecorder", __name__, url_prefix="")
 @web_recorder.route("/")
 def index():
     logger.info(request.remote_addr + " logging in ")
-    1/0
     return PageView.index()
 
 

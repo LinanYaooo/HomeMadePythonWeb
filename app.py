@@ -10,6 +10,7 @@ import traceback
 # 创建Flash核心对象
 app = app_register(Flask(__name__))
 
+
 # 异常处理逻辑
 @app.errorhandler(Exception)
 def error(e):
