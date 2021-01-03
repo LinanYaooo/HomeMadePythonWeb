@@ -11,6 +11,7 @@ class PGMapper:
         LINANY.URL_RECORDER_T
     WHERE
         NAME=%(name)s
+        AND ACTIVE='Y'
     """
 
     GET_ALL_URL = """
@@ -22,6 +23,7 @@ class PGMapper:
         LINANY.URL_RECORDER_T
     WHERE
         1 = 1
+        AND ACTIVE='Y'
     """
 
     INSERT_URL = """
@@ -35,6 +37,7 @@ class PGMapper:
     """
 
     DELETE_URL = """
-    DELETE FROM LINANY.URL_RECORDER_T
+    UPDATE LINANY.URL_RECORDER_T
+    SET ACTIVE='N'
     WHERE NAME=%s
     """
