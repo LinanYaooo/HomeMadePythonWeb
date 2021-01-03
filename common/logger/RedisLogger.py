@@ -23,14 +23,12 @@ class RedisLogger:
         text = cls.structure.format(LEVEL="info", DATE=cls.date(), NODE=SystemTools.get_ip(), PID=SystemTools.get_pid(),
                                     CONTENT=content)
         cls.logger.hset(cls.name, cls.date(), text)
-        print(text)
 
     @classmethod
     def error(cls, content=""):
         text = cls.structure.format(LEVEL="error", DATE=cls.date(), NODE=SystemTools.get_ip(),
                                     PID=SystemTools.get_pid(), CONTENT=content)
         cls.logger.hset(cls.name, cls.date(), text)
-        print(text)
 
 
 # 实例化一个出来
