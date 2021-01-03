@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding:utf-8 -*-
 # Author:Linany
-from flask import Flask
+from flask import Flask, request
 from controller import app_register
 from common.logger.RedisLogger import logger
 from config import Config
@@ -14,7 +14,7 @@ app = app_register(Flask(__name__))
 # 异常处理逻辑
 @app.errorhandler(Exception)
 def error(e):
-    logger.error(str(e) + traceback.format_exc())
+    logger.error("[ERROR]--->{}".format(request.full_path) + str(e) + traceback.format_exc())
 
 
 # 服务启动
