@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>WelCome!</title>
+    <title>Linany</title>
+    <link rel="short icon" href="/static/title.ico"></link>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS only -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
@@ -12,9 +13,9 @@
 <body>
 
 {# 欢迎巨幕 #}
-<div class="jumbotron jumbotron-fluid" style="margin: auto; height: 80%">
+<div class="jumbotron jumbotron-fluid" style="margin: auto; width:80%; height: 80%;">
     <div class="container">
-        <h1 class="display-4">学习资源</h1>
+        <h1 class="display-4">Linany学习资源</h1>
         <p class="lead">Flink & Python & MAVEN & More</p>
     </div>
 </div>
@@ -38,34 +39,40 @@
     {% endfor %}
     </tbody>
 </table>
-
 </div>
 
 {# url 登记表单 #}
-<form style="width:80%; margin: auto" action="{{ url_for('WebRecorder.update_url') }}" method="POST">
-    <div class="form-group">
-        <label for="new url address">new url address</label>
-        <input type="text" class="form-control" name="urlAddress" aria-describedby="emailHelp">
-        <small id="Help" class="form-text text-muted">provided url will be recorded for reuse</small>
-    </div>
-    <div class="form-group">
-        <label for="new url address name">new url name</label>
-        <input type="text" class="form-control" name="urlName">
-        <small id="Help" class="form-text text-muted">the url will come with a name</small>
+<form style="width:80%; margin: 20px auto" action="{{ url_for('WebRecorder.update_url') }}" method="POST">
+
+    <div class="form-row">
+        <div class="col">
+            <label for="new url address name"><b>New Url Tag</b></label>
+            <input type="text" class="form-control" name="urlName">
+            <small id="Help" class="form-text text-muted">the url will come with a name</small>
+
+        </div>
+
+        <div class="col">
+            <label for="new url address"><b>New Url Address</b></label>
+            <input type="text" class="form-control" name="urlAddress" aria-describedby="emailHelp">
+            <small id="Help" class="form-text text-muted">provided url will be recorded for reuse</small>
+        </div>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
 
 {# 链接删除 #}
-<form style="width:80%; margin: auto" action="{{ url_for('WebRecorder.delete_url') }}" method="POST">
-    <span class="form-group">
-        <label for="remove url">new url name</label>
-        <input type="text" class="form-control" name="urlName">
-        <small id="Help" class="form-text text-muted">the url will come with a name</small>
-        <button type="submit" class="btn btn-danger">Delete</button>
-    </span>
+<form style="width: 80%; margin: 20px auto" action="{{ url_for('WebRecorder.delete_url') }}" method="POST">
+    <div class="form-row">
 
+        <div class="col">
+            <span><b>Delete Url</b></span>
+            <input type="text" class="form form-control" name="urlName">
+            <small id="Help" class="form-text text-muted">url gonna be deprecated permanently</small>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-danger">Delete</button>
 </form>
 
 </body>

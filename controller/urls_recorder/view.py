@@ -8,8 +8,6 @@
 """
 from .controller import Controller
 from flask import render_template
-from datetime import datetime
-import json
 
 
 class PageView:
@@ -31,7 +29,12 @@ class PageView:
 
     @classmethod
     def get_urls(cls):
-        data = cls.controller.db.connection.hgetall("urls")
-        dd = sorted(data)
-        result = {k: data.get(k) for k in dd}
-        return result
+        """ 将url按照url名称做排序处理 """
+        data = cls.controller.all_urls
+        print(data)
+        if data:
+            dd = sorted(data, key=lambda x: x["name"])
+            result = {k.get("name"): k.get("address") for k in dd}
+            return result
+        else:
+            return {}

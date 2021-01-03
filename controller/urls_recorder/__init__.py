@@ -21,7 +21,7 @@ def index():
 def update_url():
     url = request.form.get("urlAddress")
     name = request.form.get("urlName")
-    PageView.controller.update_urls(name=name, url=url)
+    PageView.controller.update_url(name=name, url=url)
     return PageView.index()
 
 

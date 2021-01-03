@@ -2,10 +2,10 @@
 # -*- coding:utf-8 -*-
 # Author:Linany
 import redis
-from configs import Config
+from config import Config
 
 
-class RedisCore:
+class RedisCore():
     """Redis链接对象"""
 
     def __init__(self, host=Config.REDIS_SERVER, port=Config.REDIS_PORT):
@@ -23,3 +23,15 @@ class RedisCore:
     def set(self, key, value):
         self.connection.set(key, value)
         return True
+
+    def hset(self, name, key, value):
+        self.connection.hset(name, key, value)
+        return True
+
+    @staticmethod
+    def kv_set(self, key: str, value: str) -> bool:
+        pass
+
+    @staticmethod
+    def kv_get(self, key: str) -> str:
+        pass

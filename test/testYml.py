@@ -5,7 +5,7 @@
 def init_jobs():
     from database.conn_instance import Conn
     import yaml
-    with open("../configs/init_save2_somewhere.yml", encoding="utf-8") as f:
+    with open("../config/init_save2_somewhere.yml", encoding="utf-8") as f:
         dict_content = yaml.load(f, Loader=yaml.SafeLoader)
         init_urls = dict_content.get("urls", None)
         if init_urls:
