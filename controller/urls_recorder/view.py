@@ -28,10 +28,9 @@ class PageView:
         return render_template("index.html", urls=cls.get_urls(), result=result)
 
     @classmethod
-    def get_urls(cls):
+    def get_urls(cls) -> dict:
         """ 将url按照url名称做排序处理 """
         data = cls.controller.all_urls
-        print(data)
         if data:
             dd = sorted(data, key=lambda x: x["name"])
             result = {k.get("name"): k.get("address") for k in dd}
