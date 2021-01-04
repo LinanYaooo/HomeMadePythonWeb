@@ -3,7 +3,6 @@
 # Author:Linany
 
 class PGMapper:
-
     GET_URL = """
     SELECT 
         ADDRESS as ADDRESS
@@ -33,7 +32,7 @@ class PGMapper:
     (%s, %s, 'Y', current_date)
     ON conflict(NAME)
     DO UPDATE
-    SET ADDRESS = %s
+    SET ADDRESS = %s, ACTIVE='Y'
     """
 
     DELETE_URL = """
