@@ -7,7 +7,7 @@
 redis_server: 0.0.0.0
 redis_port: 6379
 
-pg_server: 192.168.101.18
+pg_server: 0.0.0.0
 pg_port: 5432
 pg_user: linany
 pg_database: linany
@@ -15,7 +15,7 @@ pg_pwd: null
 pg_max_connection: 30
 
 # mysql配置
-mysql_server: 192.168.101.18
+mysql_server: 0.0.0.0
 
 # 部署配置
 app_host: 127.0.0.1
