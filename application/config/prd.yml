@@ -4,7 +4,7 @@
 # 从环境变量获取秘钥
 
 # redis 配置
-redis_server: 192.168.101.18
+redis_server: 0.0.0.0
 redis_port: 6379
 
 pg_server: 192.168.101.18
