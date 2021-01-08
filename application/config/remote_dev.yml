@@ -1,0 +1,25 @@
+#!/usr/bin/python3
+#!/usr/bin/python3
+# -*- coding:utf-8 -*-
+# Author:Linany
+# 从环境变量获取秘钥
+
+
+# redis 配置
+redis_server: 172.16.0.24
+redis_port: 6379
+
+pg_server: 172.16.0.24
+pg_port: 5432
+pg_user: linany
+pg_database: linany
+pg_pwd: null
+pg_max_connection: 30
+
+# mysql配置
+mysql_server: 172.16.0.24
+
+# 部署配置
+app_host: 127.0.0.1
+app_port: 81
+debug: True
