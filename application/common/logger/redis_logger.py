@@ -15,6 +15,7 @@ class RedisLogger:
     structure = "[{LEVEL}][{DATE}][node={NODE}][pid={PID}] - {CONTENT}"
     name = "sys.log"
     logger_handler = logging.getLogger("AppLoggerByRedis")
+    logger_file = "app.log"
 
     @classmethod
     def date(cls):
@@ -26,6 +27,7 @@ class RedisLogger:
                                     CONTENT=content)
         cls.logger.hset(cls.name, cls.date(), text)
         cls.logger_handler.info(text)
+        cls.write_log(text)
 
     @classmethod
     def error(cls, content=""):
@@ -33,6 +35,13 @@ class RedisLogger:
                                     PID=SystemTools.get_pid(), CONTENT=content)
         cls.logger.hset(cls.name, cls.date(), text)
         cls.logger_handler.info(text)
+        cls.write_log(text)
+
+    @classmethod
+    def write_log(cls, content):
+        with open(cls.logger_file, "a+", encoding="utf-8") as f:
+            f.write(content)
+            f.write("\n")
 
 
 # 单例

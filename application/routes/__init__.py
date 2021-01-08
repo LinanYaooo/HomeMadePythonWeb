@@ -3,8 +3,6 @@
 # Author:Linany
 import traceback
 from flask import Flask, request
-from common.logger.redis_logger import logger
-
 
 def init_app(app: Flask):
     """
@@ -17,6 +15,7 @@ def init_app(app: Flask):
 
     @app.errorhandler(Exception)
     def error(e):
+        from common.logger.redis_logger import logger
         logger.error("[ERROR]--->{}".format(request.full_path) + str(e) + traceback.format_exc())
 
     return app
