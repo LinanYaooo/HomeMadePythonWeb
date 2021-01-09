@@ -23,8 +23,11 @@ class PGCore(ConnectingPool):
                  port=config.get("pg_port"),
                  blocking=True,
                  max_connection=config.get("pg_max_connection")):
-        super().__init__(creator=psycopg2, database=database, user=user, password=password,
-                         host=host, port=port, blocking=blocking, maxconnections=max_connection)
+        super().__init__(creator=psycopg2,
+                         database=database,
+                         user=user, password=password,
+                         host=host, port=port,
+                         blocking=blocking, maxconnections=max_connection, mincached=10)
 
     def __call__(self, *args, **kwargs):
         return self
