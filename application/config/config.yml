@@ -1,0 +1,43 @@
+#!/usr/bin/python
+# -*- coding:utf-8 -*-
+# Author:Linany
+# 从环境变量获取秘钥
+
+
+# redis 配置
+redis_server:
+  env: true
+  dev: 192.168.101.18
+  prd: 0.0.0.0
+  remote: 172.16.0.24
+
+redis_port: 6379
+
+pg_server:
+  env: true
+  dev: 192.168.101.18
+  prd: 0.0.0.0
+  remote: 172.16.0.24
+
+pg_port: 5432
+pg_user: linany
+pg_database: linany
+pg_pwd: null
+pg_max_connection: 30
+
+# mysql配置
+mysql_server:
+  env: true
+  dev: 192.168.101.18
+  prd: 0.0.0.0
+  remote: 172.16.0.24
+
+# 静态资源配置
+web_images:
+  title_ico: "http://192.168.101.18:81/images/title.ico"
+  button_ico: "http://192.168.101.18:81/images/title.ico"
+
+# 部署配置
+app_host: 127.0.0.1
+app_port: 81
+debug: True

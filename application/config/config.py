@@ -15,11 +15,12 @@ conf = os.environ
 class Config:
     __path = os.path.dirname(__file__)
 
-    def __init__(self, env=conf.get("DEPLOY_ENV", "DEV").lower()):
-        with open(os.path.join(self.__path, env + ".yml"), encoding="utf-8") as f:
+    def __init__(self, env=conf.get("DEPLOY_ENV", "dev").lower()):
+        with open(os.path.join(self.__path, "config.yml"), encoding="utf-8") as f:
             self.config_map = yaml.load(f.read(), Loader=yaml.SafeLoader)
 
-        # 数据库密码从环境变量获取
+        # 获取环境信息 & 数据库密码
+        self.env = env
         self.init_pwd()
 
     def get(self, config_name: str) -> str:
@@ -31,6 +32,8 @@ class Config:
         config_value = self.config_map.get(config_name.lower(), None)
         if not config_value:
             logger.warn(f"Empty Config={config_name} are Retrieving")
+        if isinstance(config_value, dict) and config_value.get("env"):
+            config_value = config_value.get(self.env)
         return config_value
 
     def set(self, config_name: str, config_value) -> bool:
@@ -51,6 +54,14 @@ class Config:
         for key in self.config_map:
             if "_pwd" in key:
                 self.set(key, conf.get(key.upper()))
+
+    def get_web_images(self) -> dict:
+        """
+        获取静态文件资源
+        :param file_name:
+        :return:
+        """
+        return self.config_map.get("web_images")
 
     def __call__(self, *args, **kwargs):
         return self

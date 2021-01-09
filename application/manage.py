@@ -4,11 +4,17 @@
 from flask import Flask
 import routes
 from config import Config
+import context
 
+# 实例化配置
 config = Config()
 
 # 创建Flash核心对象
-app = routes.init_app(Flask(__name__))
+app = Flask(__name__)
+
+# 工厂函数初始化核心对象
+context.init_app(app)
+routes.init_app(app)
 
 # 服务启动
 if __name__ == '__main__':

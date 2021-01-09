@@ -4,6 +4,7 @@
 import traceback
 from flask import Flask, request
 
+
 def init_app(app: Flask):
     """
     Flask 核心对象构建过程, 包含服务初始化和视图绑定, 静态文件绑定等
@@ -17,5 +18,3 @@ def init_app(app: Flask):
     def error(e):
         from common.logger.redis_logger import logger
         logger.error("[ERROR]--->{}".format(request.full_path) + str(e) + traceback.format_exc())
-
-    return app
