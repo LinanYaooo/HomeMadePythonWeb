@@ -2,9 +2,7 @@
 # -*- coding:utf-8 -*-
 # Author:Linany
 # coding: utf-8
-from flask_sqlalchemy import SQLAlchemy
-
-db = SQLAlchemy()
+from manage import db
 
 
 class User(db.Model):

@@ -10,7 +10,7 @@ from common.logger.redis_logger import logger
 from .view import PageView
 
 # 创建蓝图
-web_recorder = Blueprint("WebRecorder", __name__, url_prefix="")
+web_recorder = Blueprint("WebRecorder", __name__)
 
 
 @web_recorder.route("/")

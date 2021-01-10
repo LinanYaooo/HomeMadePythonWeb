@@ -22,6 +22,7 @@ pg_user: linany
 pg_database: linany
 pg_pwd: null
 pg_max_connection: 30
+pg_sqlalchemy_string: "postgresql+psycopg2://{pg_user}:{pg_pwd}@{pg_server}:{pg_port}/{pg_database}"
 
 # mysql配置
 mysql_server:

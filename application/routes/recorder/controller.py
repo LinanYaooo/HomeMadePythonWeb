@@ -5,7 +5,7 @@
 网站记录器 控制器
 - 请求控制
 """
-from model.url.dao import url_register
+from models.url.dao import url_register
 
 
 class Controller:

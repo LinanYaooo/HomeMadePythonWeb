@@ -16,7 +16,7 @@ class PGUrlRegister(UrlRegister):
     """
 
     def __init__(self):
-        from model.url.mappers.pg_mapper import PGMapper
+        from models.url.mappers.pg_mapper import PGMapper
         super().__init__(backend=PGCore())
         self.mapper = PGMapper
 

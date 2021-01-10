@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 # Author:Linany
 
-from model.UrlRegister.UrlRegister import PGUrlRegister
+from models.UrlRegister.UrlRegister import PGUrlRegister
 
 c = PGUrlRegister()
 

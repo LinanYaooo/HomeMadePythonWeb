@@ -13,7 +13,7 @@ class RedisLogger:
     """
     logger = RedisCore()
     structure = "[{LEVEL}][{DATE}][node={NODE}][pid={PID}] - {CONTENT}"
-    name = "sys.log"
+    name = "./static/sys.log"
     logger_handler = logging.getLogger("AppLoggerByRedis")
     logger_file = "app.log"
 
