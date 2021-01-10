@@ -8,6 +8,13 @@
 - 在掌握Nginx配置后, 部署时应将动静文件分开部署;
 - 自动构建过程完成动态部分部署，静态文件需手动上传静态文件位置到CDN地址;
 
+## 关于根据数据库自动生成模型映射文件
+```
+自动生成model的语法如下：
+flask-sqlacodegen "mysql://root:123456@127.0.0.1/movie_cat" --tables user --outfile "common/models/user.py"  --flask
+```
+
+
 ## DButils
 ### PooledDB
 - 为了使用 PooledDB 模块，你首先需要通过创建 PooledDB 来设置数据库连接池，传递如下参数：

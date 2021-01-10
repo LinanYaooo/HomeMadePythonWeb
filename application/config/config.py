@@ -15,12 +15,12 @@ conf = os.environ
 class Config:
     __path = os.path.dirname(__file__)
 
-    def __init__(self, env=conf.get("DEPLOY_ENV", "dev").lower()):
+    def __init__(self, env=conf.get("ENV", "dev")):
         with open(os.path.join(self.__path, "config.yml"), encoding="utf-8") as f:
             self.config_map = yaml.load(f.read(), Loader=yaml.SafeLoader)
 
         # 获取环境信息 & 数据库密码
-        self.env = env
+        self.env = env.lower()
         self.init_pwd()
 
     def get(self, config_name: str) -> str:
@@ -58,10 +58,12 @@ class Config:
     def get_web_images(self) -> dict:
         """
         获取静态文件资源
-        :param file_name:
         :return:
         """
-        return self.config_map.get("web_images")
+        static_root = self.config_map.get("static_root").get(self.env)
+        image_path = self.config_map.get("static_images")
+        data_map = {name: static_root + sub_path for name, sub_path in image_path.items()}
+        return data_map
 
     def __call__(self, *args, **kwargs):
         return self

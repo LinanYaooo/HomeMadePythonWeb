@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 # Author:Linany
 from flask import Flask
-from . import context_processors
+from static import injector
 
 
 def init_app(app: Flask):
@@ -11,4 +11,4 @@ def init_app(app: Flask):
     :param app:
     :return:
     """
-    context_processors.inject_statics(app)
+    injector.injector(app)

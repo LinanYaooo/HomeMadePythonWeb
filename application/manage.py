@@ -4,7 +4,7 @@
 from flask import Flask
 import routes
 from config import Config
-import context
+import static
 
 # 实例化配置
 config = Config()
@@ -13,7 +13,7 @@ config = Config()
 app = Flask(__name__)
 
 # 工厂函数初始化核心对象
-context.init_app(app)
+static.init_app(app)
 routes.init_app(app)
 
 # 服务启动
