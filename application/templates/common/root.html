@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
     <title>Linany</title>
@@ -14,27 +14,32 @@
             font-weight: bold;
         }
     </style>
-
-
     {% block head %}
     {% endblock %}
+</head>
+<body>
 
-    <div style="margin-bottom: 5%;">
+{# 导航栏 #}
+{% block navbar %}
+    <div style="margin-bottom: 70px;">
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
             <h2 class="navbar-brand" href="#">我的收藏夹</h2>
-
             <!-- 导航栏表单 -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li>
                         <!-- 搜索框 -->
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        <form class="form-inline">
+                            <input class="form-control mr-sm-3"
+                                   type="search"
+                                   size="50"
+                                   maxlength="50"
+                                   placeholder="Search: Keywords you wanna search for"
+                                   aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
                         </form>
                     </li>
                 </ul>
-
                 <!-- 导航栏侧边注册登录 -->
                 <ul class="navbar-nav navbar-right">
                     <li class="nav-item active">
@@ -48,20 +53,15 @@
             </div>
         </nav>
     </div>
-</head>
+{% endblock %}
 
-<body>
-{# 导航栏 #}
-
+<!-- 网页内容写在这里面 -->
 {% block body1 %}
 {% endblock %}
-
 {% block body2 %}
 {% endblock %}
-
 {% block body3 %}
 {% endblock %}
-
 </body>
 <!-- JS, Popper.js, and jQuery -->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
