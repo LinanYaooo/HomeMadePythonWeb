@@ -18,3 +18,11 @@ def injector(app: Flask):
         :return:
         """
         return dict(web_images=Config().get_web_images())
+
+    @app.context_processor
+    def web_js():
+        """
+        注入所有 JS 文件地址
+        :return:
+        """
+        return dict(web_js=Config().get_web_js())

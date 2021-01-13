@@ -8,30 +8,31 @@
     </style>
 {% endblock %}
 {% block body1 %}
-    <div class="container">
+    <div class="container-fluid">
         {# 卡片,对应 bt3 的面板组件 #}
-        <div class="row">
-            <div class="card">
-                <div class="card-header">用户登录</div>
-                <div class="card-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">用户名</label>
-                            <input type="email"
-                                   class="form-control"
-                                   id="exampleInputEmail1"
-                                   aria-describedby="emailHelp"
-                                   placeholder="请输入用户名称">
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                                else.</small>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">密码</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1"
-                                   placeholder="请输入登录密码">
-                        </div>
-                        <button type="submit" class="btn btn-lg btn-success">Submit</button>
-                    </form>
+        <div class="card">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card-header">用户登录</div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">用户名</label>
+                                <input type="email"
+                                       class="form-control"
+                                       id="user"
+                                       aria-describedby="emailHelp"
+                                       placeholder="请输入用户名称">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pwd">密码</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1"
+                                       placeholder="请输入登录密码">
+                            </div>
+                            <button type="submit" class="btn btn-lg btn-block btn-success">登录</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

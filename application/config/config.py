@@ -65,5 +65,16 @@ class Config:
         data_map = {name: static_root + sub_path for name, sub_path in image_path.items()}
         return data_map
 
+    def get_web_js(self) -> dict:
+        """
+        JS文件资源
+        :return:
+        """
+        static_root = self.config_map.get("static_root").get(self.env)
+        static_root = ""
+        js_path = self.config_map.get("static_js")
+        data_map = {name: static_root + sub_path for name, sub_path in js_path.items()}
+        return data_map
+
     def __call__(self, *args, **kwargs):
         return self

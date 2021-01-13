@@ -27,7 +27,9 @@ class PGCore(ConnectingPool):
                          database=database,
                          user=user, password=password,
                          host=host, port=port,
-                         blocking=blocking, maxconnections=max_connection, mincached=10)
+                         blocking=blocking,
+                         maxconnections=max_connection,
+                         mincached=3)
 
     def __call__(self, *args, **kwargs):
         return self

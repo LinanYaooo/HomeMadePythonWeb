@@ -42,11 +42,10 @@ static_images:
   test_ico: "images/title.ico"
 
 static_js:
-  test_js: "js/"
+  reg_js: "js/reg.js"
 
 static_html:
   test-html: "html/"
-
 
 # 部署配置
 app_host: 127.0.0.1
